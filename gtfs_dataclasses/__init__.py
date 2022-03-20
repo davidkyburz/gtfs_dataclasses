@@ -3,19 +3,19 @@
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Agency:
+    agency_id: str = None
     agency_name: str
     agency_url: str
     agency_timezone: str
-    agency_id: str = None
     agency_lang: str = None
     agency_phone: str = None
     agency_fare_url: str = None
     agency_email: str = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Stops:
     stop_id: str
     stop_code: str = None
@@ -33,14 +33,14 @@ class Stops:
     platform_code: str = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Routes:
     route_id: str
-    route_type: int
     agency_id: str = None
     route_short_name: str = None
     route_long_name: str = None
     route_desc: str = None
+    route_type: int
     route_url: str = None
     route_color: str = None
     route_text_color: str = None
@@ -49,7 +49,7 @@ class Routes:
     continuous_drop_off: int = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Trips:
     route_id: str
     service_id: str
@@ -63,13 +63,13 @@ class Trips:
     bikes_allowed: int = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class StopTimes:
     trip_id: str
-    stop_id: str
-    stop_sequence: int
     arrival_time: int = None
     departure_time: int = None
+    stop_id: str
+    stop_sequence: int
     stop_headsign: str = None
     pickup_type: int = None
     drop_off_type: int = None
@@ -79,7 +79,7 @@ class StopTimes:
     timepoint: int = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Calendar:
     service_id: str
     monday: int
@@ -93,14 +93,14 @@ class Calendar:
     end_date: int
 
 
-@dataclass
+@dataclass(kw_only=True)
 class CalendarDates:
     service_id: str
     date: int
     exception_type: int
 
 
-@dataclass
+@dataclass(kw_only=True)
 class FareAttributes:
     fare_id: str
     price: float
@@ -111,7 +111,7 @@ class FareAttributes:
     transfer_duration: int = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class FareRules:
     fare_id: str
     route_id: str = None
@@ -120,7 +120,7 @@ class FareRules:
     contains_id: str = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Shapes:
     shape_id: str
     shape_pt_lat: float
@@ -129,7 +129,7 @@ class Shapes:
     shape_dist_traveled: float = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Frequencies:
     trip_id: str
     start_time: int
@@ -138,7 +138,7 @@ class Frequencies:
     exact_times: int = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Transfers:
     from_stop_id: str
     to_stop_id: str
@@ -146,7 +146,7 @@ class Transfers:
     min_transfer_time: int = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Pathways:
     pathway_id: str
     from_stop_id: str
@@ -162,14 +162,14 @@ class Pathways:
     reversed_signposted_as: str = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Levels:
     level_id: str
     level_index: str
     level_name: str = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class FeedInfo:
     feed_publisher_name: str
     feed_publisher_url: str
@@ -182,7 +182,7 @@ class FeedInfo:
     feed_contact_url: str = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Translations:
     table_name: str
     field_name: str
@@ -193,13 +193,13 @@ class Translations:
     field_value: str = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Attributions:
-    organization_name: str
     attribution_id: str = None
     agency_id: str = None
     route_id: str = None
     trip_id: str = None
+    organization_name: str
     is_producer: int = None
     is_operator: int = None
     is_authority: int = None
